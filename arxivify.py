@@ -49,6 +49,7 @@ def get_tex_content(tex_file, base_path, output_dir):
                 l = "\\bibliography{" + bib_name + "}\n"
             m = match_include_graphics.match(l)
             if m:
+                # TODO: Handle "graphicspath" from graphicx too?
                 img_path = os.path.join(base_path, os.path.normpath(m.group(1)))
                 output_path = os.path.join(output_dir, os.path.basename(img_path))
                 open_brace = l.find("{")
